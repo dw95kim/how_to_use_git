@@ -1,0 +1,59 @@
+#########################
+remote 설정
+#########################
+git remote -v 
+--> 현재 어떤 repository 에 있는 지 확인
+
+git remote remove origin
+--> origin remote 삭제
+
+git remote add origin "dw95kim/XX.git"
+--> 특정 git 을 origin 으로 추가
+
+#########################
+log 분석
+#########################
+git log
+--> commit log 확인
+
+git reset HEAD <file>
+--> git add 삭제
+
+git reset HEAD^
+--> 가장 최근 commit 정보 삭제
+
+#########################
+add process
+#########################
+git remote 로 특정 repository 를 origin 으로 설정
+
+git add <file>
+ex) 특정 폴더에서 git add *
+
+git commit -m "NAME"
+
+git push
+--> git clone으로 받은 repo는 git push로 진행
+--> download로 받은 repo는 git push origin master로 진행
+
+#########################
+large file > 100M
+#########################
+sudo apt install git-lfs
+
+특정 repo 에서 git lfs install
+
+git lfs track <file>
+용량이 큰 파일 tracking
+ex) git lfs track "*.zip"
+
+git add .gitattributes
+
+이후 commit, push 진행
+
+#########################
+large file cache 삭제
+#########################
+https://rtyley.github.io/bfg-repo-cleaner 에서 파일 다운로드
+
+해당 repo에서 java -jar bfg-x.x.x.jar --strip-blobs-bigger-than 100M
